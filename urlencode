@@ -1,0 +1,7 @@
+#! /usr/bin/env ruby
+
+require 'cgi'
+
+message = ARGV.first == '-D' ? :unescape : :escape
+puts CGI.send(message, $stdin.read.chomp)
+

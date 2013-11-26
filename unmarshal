@@ -1,0 +1,15 @@
+#! /usr/bin/env ruby
+
+require 'cgi'
+
+message = :p
+object  = Marshal.load($stdin.read)
+
+begin
+  require 'awesome_print' 
+  message = :ap
+rescue LoadError
+  # ap not installed
+end
+
+send(message, object)
